@@ -94,4 +94,4 @@ See `data/README.md` for details on downloading and variable definitions.
 For questions or collaboration:
 - **Author:** [Your Name]  
 - **Email:** [your_email@domain.edu]  
-- **Institution:** Cedars-Sinai Medical Center
+- **Institution:** Oregon State University
