@@ -1,9 +1,10 @@
 # Dissecting Survey Data with Multidimensional Visualization
 
 ## 1. Overview
-This repository contains the R code, processed data, and visualization scripts for the project:
 
 This study introduces a multidimensional visualization framework for analyzing complex structures in survey-based policy preferences. Conventional analyses typically focus on individual policy issues, providing valuable insights into specific dimensions of public opinion but offering limited perspectives on how multiple attitudes interact within respondents. To address this gap, we propose a two-dimensional heatmap approach that integrates random forest (RF) predictions to account for demographic and interaction effects. This model-based visualization highlights joint patterns of policy preferences and enables interpretable exploration of multidimensional relationships in survey data. We apply the framework to national survey responses from 2014 to 2021 to illustrate how it can reveal evolving associations among key policy domains and identify systematic subgroup differences. Beyond this application, the proposed method provides a general and scalable tool for dissecting high-dimensional survey data, offering new possibilities for studying interconnected attitudes and behavioral patterns across diverse research contexts.
+
+This repository contains the R code, processed data, and visualization scripts for the project.
 
 ---
 
@@ -54,8 +55,8 @@ Below are examples of visualization outputs:
 
 | Figure | Description |
 |---------|--------------|
-| ![Partisan breakdown](figs/heatmap_partisan_guns_pred_immig_pred.jpeg) | **Partisan Breakdown.** Heatmaps by political affiliation (Democrat, Republican, Independent) for Gun Control vs Immigration combination. |
-| ![Subgroup visualization](figs/heatmap_republican_decompose_enviro_pred_guns_pred.jpeg) | **Subgroup Analysis.** Subgroup breakdown for Republican. |
+| ![Partisan breakdown](figs/heatmap_partisan_guns_pred_immig_pred.jpeg) | **Partisan Breakdown.** Heatmaps by political affiliation (Democrat, Republican, Independent) for Gun Control vs Immigration combination. Republicans are concentrated in the conservative pole, Democrats in the liberal pole, and Independents occupy intermediate or mixed regions. This pattern indicates that partisanship largely explains the distinct poles in the population distribution.|
+| ![Subgroup visualization](figs/heatmap_republican_decompose_enviro_pred_guns_pred.jpeg) | **Subgroup Analysis.** Subgroup breakdown for Republican. The overall two-pole structure, pro-environment/pro-gun-control vs. anti-environment/permissive-gun, persists across geography and education but disappears when stratified by gender, indicating that gender explains most of the within-party divide.|
 
 For more figures and explanations, see the `docs/` folder.
 
