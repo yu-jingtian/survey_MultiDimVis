@@ -1,9 +1,9 @@
-# 🗳️ Multidimensional Visualization of Survey Policy Preferences
+# Dissecting Survey Data with Multidimensional Visualization
 
 ## 1. Overview
 This repository contains the R code, processed data, and visualization scripts for the project:
 
-> *Add your project introduction here — describe the goal, data sources, and what insights your visualization framework provides.*
+This study introduces a multidimensional visualization framework for analyzing complex structures in survey-based policy preferences. Conventional analyses typically focus on individual policy issues, providing valuable insights into specific dimensions of public opinion but offering limited perspectives on how multiple attitudes interact within respondents. To address this gap, we propose a two-dimensional heatmap approach that integrates random forest (RF) predictions to account for demographic and interaction effects. This model-based visualization highlights joint patterns of policy preferences and enables interpretable exploration of multidimensional relationships in survey data. We apply the framework to national survey responses from 2014 to 2021 to illustrate how it can reveal evolving associations among key policy domains and identify systematic subgroup differences. Beyond this application, the proposed method provides a general and scalable tool for dissecting high-dimensional survey data, offering new possibilities for studying interconnected attitudes and behavioral patterns across diverse research contexts.
 
 ---
 
@@ -38,7 +38,7 @@ Or skip directly to plotting using the processed data:
 Rscript scripts/03_make_figures.R
 ```
 
-To run the entire workflow (download → process → plot):
+To run the entire workflow (download --> process --> plot):
 
 ```
 Rscript scripts/04_reproduce_all.R
@@ -50,60 +50,29 @@ All generated figures will be saved to the `figs/` folder.
 
 ## 3. Project Highlights
 
-> *Add brief text describing key results or visualization findings here.*
-
 Below are examples of visualization outputs:
 
 | Figure | Description |
 |---------|--------------|
-| ![Main heatmap](figs/fig1_main.png) | **Main 2D Policy Heatmap.** Joint distribution of two policy domains (e.g., Gun Control vs. Environment). |
-| ![Partisan breakdown](figs/fig2_partisan.png) | **Partisan Breakdown.** Heatmaps by political affiliation (Democrat, Republican, Independent). |
-| ![Timeline visualization](figs/fig3_timeline.png) | **Temporal Evolution.** Year-by-year visualization of shifts in policy alignment. |
+| ![Partisan breakdown](figs/heatmap_partisan_guns_pred_immig_pred.jpeg) | **Partisan Breakdown.** Heatmaps by political affiliation (Democrat, Republican, Independent) for Gun Control vs Immigration combination. |
+| ![Subgroup visualization](figs/heatmap_republican_decompose_enviro_pred_guns_pred.jpeg) | **Subgroup Analysis.** Subgroup breakdown for Republican. |
 
 For more figures and explanations, see the `docs/` folder.
 
 ---
 
 ## 4. Data Sources
-- **Public Survey Dataset** (e.g., CES 2014–2022 cumulative data):  
-  [https://cces.govlink.org/](https://cces.govlink.org/)
-- **Policy Table Data**:  
-  [https://projectsource.org/](https://projectsource.org/)
+- **Public Political Preference Survey Dataset** Cumulative CES Policy Preferences (2014-2021):  
+  [https://doi.org/10.7910/DVN/OSXDQO](https://doi.org/10.7910/DVN/OSXDQO)
+- **Corresponding Demographic Survey** Cumulative CES Common Content:  
+  [https://doi.org/10.7910/DVN/II2DB6](https://doi.org/10.7910/DVN/II2DB6)
 
 See `data/README.md` for details on downloading and variable definitions.
 
 ---
 
-## 5. Citation
-If you use this code or visualization framework, please cite:
-
-```
-@misc{yourname2025surveyVis,
-  author = {Your Name},
-  title  = {Multidimensional Visualization of Survey Policy Preferences},
-  year   = {2025},
-  url    = {https://github.com/<yourname>/survey_MultiDimVis}
-}
-```
-
----
-
-## 6. Contact
+## 5. Contact
 For questions or collaboration:
 - **Author:** [Your Name]  
 - **Email:** [your_email@domain.edu]  
 - **Institution:** Cedars-Sinai Medical Center
-
----
-
-### Quick Summary
-| Task | Command |
-|------|----------|
-| Restore environment | `Rscript --% -e "renv::restore()"` |
-| Run full pipeline | `Rscript scripts/04_reproduce_all.R` |
-| Generate figures only | `Rscript scripts/03_make_figures.R` |
-| View outputs | Open the `/figs/` folder |
-
----
-
-*(Last updated: 2025-11-12)*
