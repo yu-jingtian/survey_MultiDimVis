@@ -60,6 +60,32 @@ Below are examples of visualization outputs:
 
 For more figures and explanations, see the `docs/` folder.
 
+
+
+<table>
+  <tr>
+    <th width="75%">Figure</th>
+    <th width="25%">Description</th>
+  </tr>
+  <tr>
+    <td>
+      <img src="figs/heatmap_partisan_guns_pred_immig_pred.jpeg" width="100%">
+    </td>
+    <td>
+      <b>Partisan Breakdown.</b> Heatmaps by political affiliation (Democrat, Republican, Independent) for Gun Control vs Immigration combination. Republicans are concentrated in the conservative pole, Democrats in the liberal pole, and Independents occupy intermediate or mixed regions. This pattern indicates that partisanship largely explains the distinct poles in the population distribution.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <img src="figs/heatmap_republican_decompose_enviro_pred_guns_pred.jpeg" width="100%">
+    </td>
+    <td>
+      <b>Subgroup Analysis.</b> Subgroup breakdown for Republicans. The overall two-pole structure, pro-environment/pro-gun-control vs anti-environment/permissive-gun, persists across geography and education but disappears when stratified by gender, indicating that gender explains most of the within-party divide.
+    </td>
+  </tr>
+</table>
+
+
 ---
 
 ## 4. Data Sources
