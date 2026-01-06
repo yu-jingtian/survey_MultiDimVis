@@ -66,12 +66,6 @@ This merged table can be used directly for visualization, subgroup analysis, or 
 
 ---
 
-### Notes
-
-- All data included in the package are processed and analysis-ready.
-- Raw survey data and intermediate processing scripts are not required to use the package.
-- See individual help pages (?policy_raw, ?get_policy_raw, etc.) for detailed documentation.
-
 ## 3. Project Highlights
 
 Below are examples of visualization outputs:
