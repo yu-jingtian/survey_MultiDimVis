@@ -15,7 +15,7 @@ This repository contains the R code, processed data, and visualization scripts f
 Install the package directly from GitHub:
 
 ```r
-devtools::install_github("YOUR_GITHUB_USERNAME/surveyMDV")
+devtools::install_github("yu-jingtian/surveyMDV")
 library(surveyMDV)
 ```
 
