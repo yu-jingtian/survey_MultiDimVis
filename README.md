@@ -14,8 +14,10 @@ This repository contains the R code, processed data, and visualization scripts f
 
 Install the package directly from GitHub:
 
-    devtools::install_github("yu-jingtian/surveyMDV")
-    library(surveyMDV)
+```r
+devtools::install_github("YOUR_GITHUB_USERNAME/surveyMDV")
+library(surveyMDV)
+```
 
 This installs the package along with its required dependencies (e.g., ggplot2, dplyr).
 
@@ -33,30 +35,32 @@ Each dataset includes the keys case_id and year, which can be used for merging.
 
 You can load the full datasets directly:
 
-    data("policy_raw", package = "surveyMDV")
-    data("policy_rf", package = "surveyMDV")
-    data("demographics", package = "surveyMDV")
+```r
+data("policy_raw", package = "surveyMDV")
+data("policy_rf", package = "surveyMDV")
+data("demographics", package = "surveyMDV")
+```
 
 Or use the provided helper functions to subset by year and/or select columns:
 
-    raw_2016 <- get_policy_raw(year = 2016, cols = c("immig", "guns"))
-    rf_2016  <- get_policy_rf(year = 2016, cols = c("immig_rf", "guns_rf"))
-    demo_2016 <- get_demographics(
-      year = 2016,
-      cols = c("partisan", "race", "gender", "weight_cumulative")
-    )
-
----
-
-### Step 3 — Merge datasets for analysis or visualization
+```r
+raw_2016 <- get_policy_raw(year = 2016, cols = c("immig", "guns"))
+rf_2016  <- get_policy_rf(year = 2016, cols = c("immig_rf", "guns_rf"))
+demo_2016 <- get_demographics(
+  year = 2016,
+  cols = c("partisan", "race", "gender", "weight_cumulative")
+)
+```
 
 Datasets are designed to be joined using case_id and year:
 
-    library(dplyr)
+```r
+library(dplyr)
 
-    df <- policy_raw |>
-      inner_join(policy_rf, by = c("case_id", "year")) |>
-      inner_join(demographics, by = c("case_id", "year"))
+df <- policy_raw |>
+  inner_join(policy_rf, by = c("case_id", "year")) |>
+  inner_join(demographics, by = c("case_id", "year"))
+```
 
 This merged table can be used directly for visualization, subgroup analysis, or model-based summaries as described in the paper.
 
