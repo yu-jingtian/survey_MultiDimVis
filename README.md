@@ -21,15 +21,13 @@ library(surveyMDV)
 
 This installs the package along with its required dependencies (e.g., ggplot2, dplyr).
 
----
-
 ### Step 2 — Load packaged data (2014–2021)
 
 The package ships with three respondent-level datasets covering survey years 2014–2021:
 
-- policy_raw: raw policy preference scores
-- policy_rf: random-forest predicted policy scores
-- demographics: respondent demographics and survey weights
+- `policy_raw`: raw policy preference scores
+- `policy_rf`: random-forest predicted policy scores
+- `demographics`: respondent demographics and survey weights
 
 Each dataset includes the keys case_id and year, which can be used for merging.
 
