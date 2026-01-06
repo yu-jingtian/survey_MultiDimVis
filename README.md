@@ -10,44 +10,63 @@ This repository contains the R code, processed data, and visualization scripts f
 
 ## 2. How to Run the Project
 
-### Step 1 — Set up the R environment
-Open **PowerShell** or **Git Bash** inside the project folder and run:
+### Step 1 — Install and load the package
 
-```
-Rscript --% -e "install.packages('renv', repos='https://cloud.r-project.org')"
-Rscript --% -e "renv::restore()"
-```
+Install the package directly from GitHub:
 
-This installs all required R packages listed in `renv.lock`.
+    devtools::install_github("yu-jingtian/surveyMDV")
+    library(surveyMDV)
+
+This installs the package along with its required dependencies (e.g., ggplot2, dplyr).
+
+---
+
+### Step 2 — Load packaged data (2014–2021)
+
+The package ships with three respondent-level datasets covering survey years 2014–2021:
+
+- policy_raw: raw policy preference scores
+- policy_rf: random-forest predicted policy scores
+- demographics: respondent demographics and survey weights
+
+Each dataset includes the keys case_id and year, which can be used for merging.
+
+You can load the full datasets directly:
+
+    data("policy_raw", package = "surveyMDV")
+    data("policy_rf", package = "surveyMDV")
+    data("demographics", package = "surveyMDV")
+
+Or use the provided helper functions to subset by year and/or select columns:
+
+    raw_2016 <- get_policy_raw(year = 2016, cols = c("immig", "guns"))
+    rf_2016  <- get_policy_rf(year = 2016, cols = c("immig_rf", "guns_rf"))
+    demo_2016 <- get_demographics(
+      year = 2016,
+      cols = c("partisan", "race", "gender", "weight_cumulative")
+    )
 
 ---
 
-### Step 2 — Download and process data
-Raw data are publicly available.  
-See `data/README.md` for download links and details.
+### Step 3 — Merge datasets for analysis or visualization
 
-To reproduce everything from scratch, run:
+Datasets are designed to be joined using case_id and year:
 
-```
-Rscript scripts/01_download_raw.R
-Rscript scripts/02_process.R
-```
+    library(dplyr)
 
-Or skip directly to plotting using the processed data:
+    df <- policy_raw |>
+      inner_join(policy_rf, by = c("case_id", "year")) |>
+      inner_join(demographics, by = c("case_id", "year"))
 
-```
-Rscript scripts/03_make_figures.R
-```
-
-To run the entire workflow (download --> process --> plot):
-
-```
-Rscript scripts/04_reproduce_all.R
-```
-
-All generated figures will be saved to the `figs/` folder.
+This merged table can be used directly for visualization, subgroup analysis, or model-based summaries as described in the paper.
 
 ---
+
+### Notes
+
+- All data included in the package are processed and analysis-ready.
+- Raw survey data and intermediate processing scripts are not required to use the package.
+- See individual help pages (?policy_raw, ?get_policy_raw, etc.) for detailed documentation.
 
 ## 3. Project Highlights
 
@@ -86,7 +105,6 @@ For more figures and explanations, see the `docs/` folder.
 - **Corresponding Demographic Survey** Cumulative CES Common Content:  
   [https://doi.org/10.7910/DVN/II2DB6](https://doi.org/10.7910/DVN/II2DB6)
 
-See `data/README.md` for details on downloading and variable definitions.
 
 ---
 
@@ -95,5 +113,3 @@ For questions or collaboration:
 - **Author:** [Your Name]  
 - **Email:** [your_email@domain.edu]  
 - **Institution:** Oregon State University
-
-test
