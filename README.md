@@ -62,7 +62,7 @@ df <- policy_raw |>
 
 This merged table can be used directly for visualization, subgroup analysis, or model-based summaries as described in the paper.
 
-### RF heatmap for gun control vs immigration (2014–2021)
+### Example: RF heatmap for gun control vs immigration (2014–2021)
 
 This example visualizes the joint distribution of RF–predicted gun control and immigration attitudes across survey years and partisan subgroups, using year-specific population scaling and automatically dropping years with missing policy data.
 
