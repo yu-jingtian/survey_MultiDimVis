@@ -10,6 +10,5 @@ panels_rep_decompose()
 A list of panel specifications.
 }
 \description{
-Returns a seven-row panel set for Republicans:
-Rep., Rep. Big Metro, Rep. Other Co., Rep. Non-college, Rep. College, Rep. Female, Rep. Male.
+Preset panels: Republican decomposition
 }

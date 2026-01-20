@@ -2,7 +2,7 @@
 % Please edit documentation in R/heat_wrappers.R
 \name{plot_policy_heatgrid}
 \alias{plot_policy_heatgrid}
-\title{Multiyear (or single-year) heatmap grid for policy pairs}
+\title{Multiyear (or single-year) heatmap grid for a policy pair}
 \usage{
 plot_policy_heatgrid(
   years,
@@ -11,11 +11,13 @@ plot_policy_heatgrid(
   type = c("rf", "raw"),
   panels = panels_partisan(),
   scale = c("across_years", "within_year"),
+  scale_ref = c("population", "panel"),
+  scale_ref_panel = 1L,
   breaks = seq(0, 1, by = 0.05)
 )
 }
 \arguments{
-\item{years}{Integer vector of years (2014--2021). Length 1 produces a single-year grid.}
+\item{years}{Integer vector of years (2014--2021).}
 
 \item{policy_x, policy_y}{Policy variable names. For \code{type="raw"}, use raw names
 (e.g., \code{"abortion"}). For \code{type="rf"}, you may pass base names (e.g., \code{"abortion"})
@@ -28,6 +30,10 @@ or suffixed names (e.g., \code{"abortion_rf"}); base names will be converted to 
 
 \item{scale}{One of \code{"across_years"} (default) or \code{"within_year"}.}
 
+\item{scale_ref}{Scaling reference: \code{"population"} (default) or \code{"panel"}.}
+
+\item{scale_ref_panel}{Integer panel index used when \code{scale_ref="panel"} (default 1).}
+
 \item{breaks}{Numeric breaks used for RF binning (ignored for raw). Default is \code{seq(0,1,0.05)}.}
 }
 \value{
@@ -38,8 +44,7 @@ Creates a grid of heatmaps comparing \code{years} (columns) across subgroup pane
 for a pair of policy dimensions. Works for either raw scores (\code{type = "raw"}) or
 RF-predicted scores (\code{type = "rf"}).
 }
-\examples{
-# Example (requires data shipped in the package):
-# p <- plot_policy_heatgrid(years = 2019:2021, policy_x = "abortion", policy_y = "healthcare",
-#                           type = "rf", panels = panels_partisan())
+\details{
+If a year has no data for either requested policy (i.e., the relevant column is all \code{NA}
+for that year), the entire year column is removed from the plot and a warning is issued.
 }

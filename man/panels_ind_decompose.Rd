@@ -10,6 +10,5 @@ panels_ind_decompose()
 A list of panel specifications.
 }
 \description{
-Returns a seven-row panel set for Independents:
-Ind., Ind. Big Metro, Ind. Other Co., Ind. Non-college, Ind. College, Ind. Female, Ind. Male.
+Preset panels: Independent decomposition
 }

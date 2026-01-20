@@ -10,6 +10,5 @@ panels_dem_decompose()
 A list of panel specifications.
 }
 \description{
-Returns a seven-row panel set for Democrats:
-Dem., Dem. Big Metro, Dem. Other Co., Dem. Non-college, Dem. College, Dem. Female, Dem. Male.
+Preset panels: Democrat decomposition
 }

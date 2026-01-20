@@ -26,7 +26,6 @@ panels_partisan <- function() {
 .gender_is_female <- function(x) x %in% c("Female", "Woman", "Women")
 .gender_is_male   <- function(x) x %in% c("Male", "Men", "Man")
 
-# Internal builder used by the three exported decompositions
 .panels_party_decompose <- function(party) {
   lab <- .party_label(party)
 
@@ -64,9 +63,6 @@ panels_partisan <- function() {
 
 #' Preset panels: Republican decomposition
 #'
-#' Returns a seven-row panel set for Republicans:
-#' Rep., Rep. Big Metro, Rep. Other Co., Rep. Non-college, Rep. College, Rep. Female, Rep. Male.
-#'
 #' @return A list of panel specifications.
 #' @export
 panels_rep_decompose <- function() {
@@ -75,9 +71,6 @@ panels_rep_decompose <- function() {
 
 #' Preset panels: Democrat decomposition
 #'
-#' Returns a seven-row panel set for Democrats:
-#' Dem., Dem. Big Metro, Dem. Other Co., Dem. Non-college, Dem. College, Dem. Female, Dem. Male.
-#'
 #' @return A list of panel specifications.
 #' @export
 panels_dem_decompose <- function() {
@@ -85,9 +78,6 @@ panels_dem_decompose <- function() {
 }
 
 #' Preset panels: Independent decomposition
-#'
-#' Returns a seven-row panel set for Independents:
-#' Ind., Ind. Big Metro, Ind. Other Co., Ind. Non-college, Ind. College, Ind. Female, Ind. Male.
 #'
 #' @return A list of panel specifications.
 #' @export
