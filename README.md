@@ -10,7 +10,7 @@ This repository contains the R code, processed data, and visualization scripts f
 
 ## 2. How to Run the Project
 
-### Step 1 — Install and load the package
+### Install and load the package
 
 Install the package directly from GitHub:
 
@@ -21,7 +21,7 @@ library(surveyMDV)
 
 This installs the package along with its required dependencies (e.g., ggplot2, dplyr).
 
-### Step 2 — Load packaged data (2014–2021)
+### Load packaged data (2014–2021)
 
 The package ships with three respondent-level datasets covering survey years 2014–2021:
 
@@ -61,6 +61,35 @@ df <- policy_raw |>
 ```
 
 This merged table can be used directly for visualization, subgroup analysis, or model-based summaries as described in the paper.
+
+### RF heatmap for gun control vs immigration (2014–2021)
+
+This example visualizes the joint distribution of RF–predicted gun control and immigration attitudes across survey years and partisan subgroups, using year-specific population scaling and automatically dropping years with missing policy data.
+
+```r
+# Full range of years covered by packaged data
+years <- 2014:2021
+
+# Basic partisan panels (Population / Republican / Independent / Democrat),
+# using RF-predicted policy scores
+p <- plot_policy_heatgrid(
+  years     = years,
+  policy_x = "guns",     # resolved internally to "guns_rf"
+  policy_y = "immig",    # resolved internally to "immig_rf"
+  type      = "rf",
+  panels    = panels_partisan(),
+  scale     = "within_year",   # year-specific scaling based on population
+  scale_ref = "population"
+)
+
+p
+```
+
+```
+Warning message:
+Dropping year(s) with missing policy data:
+- 2018: all NA for immig_rf
+```
 
 ---
 
