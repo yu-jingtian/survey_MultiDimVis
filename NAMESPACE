@@ -3,3 +3,8 @@
 export(get_demographics)
 export(get_policy_raw)
 export(get_policy_rf)
+export(panels_dem_decompose)
+export(panels_ind_decompose)
+export(panels_partisan)
+export(panels_rep_decompose)
+export(plot_policy_heatgrid)
